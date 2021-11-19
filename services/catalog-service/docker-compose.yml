@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  catalog_service:
+    build: .
+    restart: always
+    ports:
+    - 7001:7001
+    depends_on:
+      - catalog_mongodb
+  catalog_mongodb:
+    image: mongo
+    restart: always
+    ports:
+    - 27017:27017

@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  basket_service:
+    build: .
+    restart: always
+    ports:
+      - 7002:7002
+    depends_on:
+      - basket_redis
+  basket_redis:
+    hostname: redis
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
